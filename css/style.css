@@ -109,5 +109,5 @@ body {
 
 #thumbnails img.active {
   filter: grayscale(0);
-  box-shadow: 0 0 10px dodgerblue;
+  box-shadow: 0 0 10px green;
 }
