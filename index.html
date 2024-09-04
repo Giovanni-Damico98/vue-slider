@@ -27,16 +27,28 @@
   <body>
     <div class="container">
       <div id="carousel">
-        <i id="prev" class="bi bi-arrow-left-circle" @click="prevImg"></i>
+        <i
+          id="prev"
+          class="bi bi-arrow-left-circle"
+          @click="prevImg"
+          @mouseover="stopAutoPlay"
+          @mouseleave="autoPlay"
+        ></i>
         <div class="gallery d-flex text-white">
           <img :src="imagesList[activeIndex].image" alt="..." />
 
           <div id="imgText">
-            <h2>{{imagesList[activeIndex].title}}</h2>
-            <p>{{imagesList[activeIndex].text}}</p>
+            <h2 class="fs-5">{{imagesList[activeIndex].title}}</h2>
+            <p class="fs-6">{{imagesList[activeIndex].text}}</p>
           </div>
         </div>
-        <i id="next" class="bi bi-arrow-right-circle" @click="nextImg"></i>
+        <i
+          id="next"
+          class="bi bi-arrow-right-circle"
+          @click="nextImg"
+          @mouseover="stopAutoPlay"
+          @mouseleave="autoPlay"
+        ></i>
         <div id="thumbnails" class="my-3">
           <img
             v-for="(image, index) in imagesList"
@@ -44,6 +56,8 @@
             :src="image.image"
             :alt="image.title"
             @click="activeIndex = index"
+            @mouseover="stopAutoPlay"
+            @mouseleave="autoPlay"
             :class="{ active: activeIndex === index }"
           />
         </div>

@@ -13,7 +13,7 @@ createApp({
         {
           image: "img/02.webp",
           title: "Ratchet & Clank: Rift Apart",
-          text: "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.",
+          text: "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality to escape a long-forgotten city.",
         },
         {
           image: "img/03.webp",
@@ -23,7 +23,7 @@ createApp({
         {
           image: "img/04.webp",
           title: "Stray",
-          text: "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city",
+          text: "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city to escape a long-forgotten city",
         },
         {
           image: "img/05.webp",
@@ -31,25 +31,36 @@ createApp({
           text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
         },
       ],
+      intervalId: null,
     };
   },
   methods: {
-    prevImg: function () {
+    prevImg() {
       if (this.activeIndex === 0) {
         this.activeIndex = this.imagesList.length - 1;
       } else {
         this.activeIndex--;
       }
     },
-    nextImg: function () {
+    nextImg() {
       if (this.activeIndex === this.imagesList.length - 1) {
         this.activeIndex = 0;
       } else {
         this.activeIndex++;
       }
     },
+    autoPlay() {
+      this.intervalId = setInterval(this.nextImg, 3000);
+    },
+    stopAutoPlay() {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    },
   },
   updated() {
     console.log(`L'indice dell'immagine attiva è: ${this.activeIndex}`);
+  },
+  mounted() {
+    this.autoPlay();
   },
 }).mount("#carousel");
