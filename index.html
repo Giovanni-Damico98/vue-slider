@@ -30,12 +30,24 @@
         <i id="prev" class="bi bi-arrow-left-circle" @click="prevImg"></i>
         <div class="gallery d-flex text-white">
           <img :src="imagesList[activeIndex].image" alt="..." />
-          <h2>{{imagesList[activeIndex].title}}</h2>
-          <p>{{imagesList[activeIndex].text}}</p>
+
+          <div id="imgText">
+            <h2>{{imagesList[activeIndex].title}}</h2>
+            <p>{{imagesList[activeIndex].text}}</p>
+          </div>
         </div>
         <i id="next" class="bi bi-arrow-right-circle" @click="nextImg"></i>
+        <div id="thumbnails" class="my-3">
+          <img
+            v-for="(image, index) in imagesList"
+            :key="index"
+            :src="image.image"
+            :alt="image.title"
+            @click="activeIndex = index"
+            :class="{ active: activeIndex === index }"
+          />
+        </div>
       </div>
-      <div id="thumbnails"><!-- inserisco i thumbs --></div>
     </div>
 
     <script src="js/script.js"></script>

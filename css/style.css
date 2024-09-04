@@ -10,11 +10,6 @@
   margin: 3rem auto;
 }
 
-.gallery h2,
-p {
-  position: absolute;
-}
-
 /* Carousel */
 #carousel {
   height: 400px;
@@ -28,24 +23,24 @@ p {
   position: relative;
 }
 
-#carousel h2,
-#carousel p {
+/* Galleria */
+.gallery {
+  position: relative;
+  height: 100%;
+}
+
+#imgText {
   position: absolute;
+  bottom: 0px;
+  left: 20px;
   color: white;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: end;
 }
-
-#carousel h2 {
-  top: 300px;
-  right: 25px;
-  font-size: 30px;
-}
-
-#carousel p {
-  bottom: 20px;
-  right: 25px;
-  font-size: 10px;
-  max-width: 90%;
+#imgText h2,
+#imgText p {
+  text-shadow: 2px 8px 4px rgba(0, 0, 0, 0.8);
 }
 
 #carousel img {
